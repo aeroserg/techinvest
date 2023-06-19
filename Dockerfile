@@ -1,6 +1,6 @@
 FROM php:7.4-apache
-COPY . /usr/src/techinvest
-WORKDIR /usr/src/techinvest
+COPY . /var/www/html
+
 CMD [ "php", "-u", "./index.php" ]
 EXPOSE 80
 
