@@ -29,8 +29,8 @@
                     <div class="b-article_contacts_content">
                         <a href="tel:+74957999630">+7-495-799-96-30</a>
                     </div>
-                    <div class="b-article__agreement mt-5 " id="linkToModal">
-                        <a href="#agreement">Политика конфиденциальности</a>
+                    <div class="b-article__agreement mt-lg-5 mb-5" id="linkToModal">
+                        <a href="#privacyPolicy" id="privacyPolicyLink">Политика конфиденциальности</a>
                     </div>
                 </div>
                 <div class="col d-flex flex-column justify-content-between text-lg-center">

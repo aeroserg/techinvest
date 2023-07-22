@@ -1,3 +1,5 @@
-FROM php:7.4-apache
-COPY . /var/www/html
-EXPOSE 80
+FROM php:fpm-alpine
+
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
+WORKDIR /var/www/html

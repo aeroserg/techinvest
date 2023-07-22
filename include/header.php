@@ -1,20 +1,47 @@
+<?php 
+
+$scheme = isset($_SERVER['HTTP_SCHEME']) ? $_SERVER['HTTP_SCHEME'] : (
+     (
+  (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') ||
+   443 == $_SERVER['SERVER_PORT']
+     ) ? 'https://' : 'http://'
+ );
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Кэпитал Техинвест является самой передовой компанией на рынке в сфере предоставления сервисов по аутсориснгу IT функций">
+    <meta property="og:description" content="Капитал Техинвест является передовой компанией на рынке в сфере предоставления сервисов по аутсориснгу IT функций">
+    <meta name="description" content="Капитал Техинвест является передовой компанией на рынке в сфере предоставления сервисов по аутсориснгу IT функций">
     <meta property="og:image" content="/img/og_image.jpg">
-    <meta property="og:title" content="Кэпитал Техинвест">
-    <meta property="og:url" content="https://techinvest.ru/">
-    <meta property="og:site_name" content="https://techinvest.ru/">
+    <meta property="og:title" content="Капитал Техинвест">
+    <meta property="og:url" content="<?php echo $scheme . $_SERVER["SERVER_NAME"] . '/';?>">
+    <meta property="og:site_name" content="<?php echo $scheme . $_SERVER["SERVER_NAME"] . '/';?>">
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
-    
+    <meta name="keywords" content="аутсорсинг, услуги аутсорсинга, IT аутсорсинг, ит аутсорсинг, outsourcing, аутсорсинг серверов, айти аутсорсинг, аутсорс ит, ооо техинвест, заказть услугу it аутсоринга, ооо техинвест сайт, аутсорсинг 1с, Администрирование AD DHCP DNS, Настройка и работа с сетевым оборудованием, Корпоративные антивирусы, Организация систем видеонаблюдения" />
+    <meta name="robots" content="index, follow">
     <link rel="stylesheet" href="/css/style.css">
-    <title>Кэпитал Техинвест - Лидер IT аутсорсинга</title>
+    <title>Капитал Техинвест - IT аутсорсинг</title>
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript" >
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    m[i].l=1*new Date();
+    for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+    ym(94226694, "init", {
+            clickmap:true,
+            trackLinks:true,
+            accurateTrackBounce:true,
+            webvisor:true
+    });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/94226694" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
 </head>
 <body>
 <div class="b-mobile-header_wrapper">

@@ -3,7 +3,7 @@
 @font-face {
     font-family: Rubik;
     font-display: swap;
-    src: url("/fonts/Rubik-Light.woff") format("woff");
+    src: url("../fonts/Rubik-Light.woff") format("woff");
     font-weight: 100;
     font-style: normal;
 }
@@ -17,35 +17,35 @@
 @font-face {
     font-family: Rubik;
     font-display: swap;
-    src: url("/fonts/Rubik-Regular.ttf") format("ttf"), url("/fonts/Rubik-Regular.woff") format("woff");
+    src: url("../fonts/Rubik-Regular.ttf") format("ttf"), url("../fonts/Rubik-Regular.woff") format("woff");
     font-weight: 400;
     font-style: normal;
 }
 @font-face {
     font-family: Rubik;
     font-display: swap;
-    src: url("/fonts/Rubik-Italic.ttf") format("ttf");
+    src: url("../fonts/Rubik-Italic.ttf") format("ttf");
     font-weight: 400;
     font-style: italic;
   }
 @font-face {
     font-family: Rubik;
     font-display: swap;
-    src: url("/fonts/Rubik-Medium.ttf") format("ttf");
+    src: url("../fonts/Rubik-Medium.ttf") format("ttf");
     font-weight: 700;
     font-style: normal;
 }
 @font-face {
     font-family: Rubik;
     font-display: swap;
-    src: url("/fonts/Rubik-Black.ttf") format("ttf");
+    src: url("../fonts/Rubik-Black.ttf") format("ttf");
     font-weight: 900;
     font-style: normal;
   }
 @font-face {
     font-family: Rubik;
     font-display: swap;
-    src: url("/fonts/Rubik-Bold.woff") format("woff");
+    src: url("../fonts/Rubik-Bold.woff") format("woff");
     font-weight: 900;
     font-style: normal;
 }
@@ -54,14 +54,14 @@
 @font-face {
     font-family: Ruda;
     font-display: swap;
-    src: url("/fonts/Ruda-Medium.ttf") format("ttf");
+    src: url("../fonts/Ruda-Medium.ttf") format("ttf");
     font-weight: 500;
     font-style: normal;
 }
 @font-face {
     font-family: Ruda;
     font-display: swap;
-    src: url("/fonts/Ruda-Bold.woff") format("woff");
+    src: url("../fonts/Ruda-Bold.woff") format("woff");
     font-weight: 600;
     font-style: normal;
 }
@@ -71,26 +71,26 @@
 @font-face {
     font-family: Inter;
     font-display: swap;
-    src: url("/fonts/Inter-ExtraLight.ttf") format("ttf");
+    src: url("../fonts/Inter-ExtraLight.ttf") format("ttf");
     font-weight: 100;
 }
 @font-face {
     font-family: Inter;
     font-display: swap;
-    src: url("/fonts/Inter-Light.ttf") format("ttf");
+    src: url("../fonts/Inter-Light.ttf") format("ttf");
     font-weight: 200;
 }
 @font-face {
     font-family: Inter;
     font-display: swap;
-    src: url("/fonts/Inter-Regular.ttf") format("ttf"), url("/fonts/Inter-Medium.woff") format("woff");
+    src: url("../fonts/Inter-Regular.ttf") format("ttf"), url("../fonts/Inter-Medium.woff") format("woff");
     font-weight: 400;
     font-style: normal;
 }
 @font-face {
     font-family: Inter;
     font-display: swap;
-    src: url("/fonts/Inter-SemiBold.woff") format("woff");
+    src: url("../fonts/Inter-SemiBold.woff") format("woff");
     font-weight: 600;
     font-style: normal;
 }
@@ -116,16 +116,27 @@ body {
     color:  var(--bs-white);
     transition: all 0.3s;
 }
+.d-none, .d-block {
+    transition: all 0.3s;
+}
+
 a {
     text-decoration: none;
     color:  var(--bs-white);
     transition: all 0.3s;
 }
-.contacts a, .b-close-btn {
+p {
+    margin-bottom: 2.5rem;
+}
+ .b-close-btn {
+    text-decoration: none;
+    color:  #000000;
+    transition: all 0.3s;
+}
+.contacts a {
     text-decoration: underline;
     color:  var(--bs-white);
     transition: all 0.3s;
-
 }
 a:hover {
     text-decoration: none;
@@ -189,10 +200,10 @@ header .container, footer .container, .header_modal .container{
     color: var(--bs-white);
 }
 .i-section {
-    padding: 5rem 0;
+    padding: 2.675rem 0;
 }
 .i-sectionStartPage {
-    padding:  7rem 0;
+    padding:  3.125rem 0;
 }
 h1 {
     font-family: Rubik;
@@ -202,8 +213,8 @@ h1 {
     text-transform: uppercase;
     color:#5B48EE;
 }
-h3 {
-
+h4 {
+    margin-bottom: 0;
 }
 p {
     font-size: 25px;
@@ -229,13 +240,15 @@ p {
 
 }
 .primary-btn {
-    font-size: 45px;
+    width: 65%;
+    font-size: 37px;
     font-family: Ruda, sans-serif;
     font-weight: 600;
     font-style: normal;
     background-color: #5B48EE;
     text-align: center;
-    border-radius: 27px;
+    border-radius: 1.5rem;
+    padding: .7rem 2rem;
     text-transform: uppercase;
 
 }
@@ -258,7 +271,7 @@ p {
     color: #5B48EE;
 }
 .b-article h2 {
-    font-size: 75px;
+    font-size: 80px;
     line-height: 75px;
     margin-bottom: 5rem;
 }
@@ -303,8 +316,8 @@ main ul li::before {
     font-style: normal;
     background-color: #5B48EE;
     text-align: center;
-    border-radius: 30px;
-    padding: 1rem 2rem;
+    border-radius: 1.5rem;
+    padding: 1rem 5rem;
 }
 .b-article__advs_item_circle {
     display: flex;
@@ -444,12 +457,27 @@ h4 {
     border-radius: 10px;
   }
   
+ 
   .form-label {
     position: absolute;
     pointer-events: none;
     left: 15px;
     right: 15px;
-    top: 0;
+    top: 0px;
+    white-space: nowrap;
+    overflow: hidden;
+    line-height: 40px;
+    transition: .3s;
+    text-align: left;
+    color: #000000;
+    font-size: 1.18rem;
+  }
+  #contactUs .form-label {
+    position: absolute;
+    pointer-events: none;
+    left: 15px;
+    right: 15px;
+    top: 20px;
     white-space: nowrap;
     overflow: hidden;
     line-height: 40px;
@@ -458,14 +486,14 @@ h4 {
     color: #000000;
   }
   
-  
-  .form-input:focus~.form-label,
-  .form-input:required:valid~.form-label,
-  textarea:optional:invalid~.form-label{
-    top: -10px;
-    font-size: 10px;
-    
-  }
+    #contactUs .form-input:focus~.form-label, #contactUs .form-input:required:valid~.form-label, #contactUs textarea:optional:invalid~.form-label {
+        top: -10px;
+        font-size: 10px;
+    }
+    #contactUsFooter .form-input:focus~.form-label, #contactUsFooter .form-input:required:valid~.form-label, #contactUsFooter textarea:optional:invalid~.form-label {
+        top: -10px;
+        font-size: 10px;
+    }
 textarea {
     min-height: 150px;
     border-radius: 20px!important;
@@ -531,13 +559,56 @@ textarea {
 .b-modal .i-section ul {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 .b-modal-body {
     overflow-y: auto;
     margin: 0 auto;
     background: linear-gradient(194.88deg, #000000 12%, #140738 63.19%, #1E0073 87.91%);
     transition: all .5s;
+    height: 100%;
+}
+@media (min-width: 1200px){
+   #privacyPolicy .h2, #privacyPolicy h2 {
+        font-size: 2rem;
+        font-family: 'Times New Roman', Times, serif;
+        color: #000000!important;
+    }
+    #privacyPolicy h3{
+        font-size: 1.75rem;
+        font-family: 'Times New Roman', Times, serif;
+        color: #000000!important;
+    }
+}
+#privacyPolicy h3{
+    font-size: calc(1.3rem + .6vw);
+    font-weight: 500;
+    line-height: 1.2;
+    font-family: 'Times New Roman', Times, serif;
+    color: #000000!important;
+}
+#privacyPolicy h2, #provacyPolicy .h3{
+    font-size: calc(1.325rem + .9vw);
+    font-family: 'Times New Roman', Times, serif;
+    color: #000000!important;
+}
+#privacyPolicy h1, #privacyPolicy .h1{
+    font-size: 30px;
+    font-family: 'Times New Roman', Times, serif;
+    color: #000000!important;
+}
+#privacyPolicy .b-modal-body{
+    background: white;
+    font-family: 'Times New Roman', Times, serif;
+    color: #000000!important;
+}
+#privacyPolicy .b-modal-body ul, #privacyPolicy .b-modal-body {
+    list-style-type: disc;
+}
+#privacyPolicy .b-modal-body a{
+    text-decoration: underline;
+    font-family: 'Times New Roman', Times, serif;
+    color: #0051cb!important;
 }
 
 .header_modal .header__menu ul{
@@ -548,6 +619,9 @@ textarea {
 .header_modal ul li::before{
     content: none;
     background: none;
+}
+.b-service-img {
+    width: fit-content;
 }
 .header_modal ul li {
     text-align: left;
@@ -560,13 +634,13 @@ textarea {
 .b-modal-title {
     font-family: Rubik;
     line-height: 90px;
-    font-size: 88px;
+    font-size: 80px;
 }
 .b-modal-description {
     font-family: Rubik;
     font-size: 27px;
     line-height: 30px;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
 }
 .b-close-btn {
     font-size: 19px;
@@ -590,12 +664,17 @@ textarea {
     z-index: 10000;
 }
 .service-title {
-    font-size: 80px;
-    line-height: 66px;
+    font-size: 3.75rem;
+    line-height: 3rem;
+}
+.service-title-2 {
+    font-size: 2.5rem;
+    line-height: 3rem;
 }
 .b-modal-phoneBtn {
     text-align: center;
 }
+
 .b-modal-phoneBtn a{
     font-size: 70px;
     line-height: 90px;
@@ -611,7 +690,7 @@ textarea {
     box-shadow: 0px 10px 1px #000000;
 }
 .lh-100 {
-    line-height: 100px;
+    line-height: 4rem;
 }
 .p-30 {
     padding: 0 10%;
@@ -619,6 +698,7 @@ textarea {
 #contactUs .form-input {
     background-color: #5b48ee69;
     color: #FFFFFF;
+    padding: 2.5rem;
 }
 #contactUs .form-label{
     color: #FFFFFF;
@@ -634,8 +714,8 @@ textarea {
   }
   
   .line {
-    width: 50px;
-    height: 4px;
+    width: 35px;
+    height: 3px;
     background-color: #ffffff;
     margin: 10px 0;
     transition: all .5s;
@@ -657,9 +737,9 @@ textarea {
 .b-mobile-menu {
     transition: all .5s;
     position: fixed;
-    top: 68px;
+    top: 0;
     width: 100%;
-    z-index: 105;
+    z-index: 10000000;
     height: 100vh;
     background-color: #000000;
     transform: translate(100%, 0);
@@ -667,12 +747,14 @@ textarea {
 }
 .b-mobile-header {
     height: auto;
-    z-index: 106;
-    width: 100%;
+    z-index: 100000000;
     background-color:#5B48EE;
     text-align: right;
-    padding: 5px;
+    padding: 1rem 1rem 0.5rem 1rem;
     position: fixed;
+    top: 1%;
+    right: 4%;
+    border-radius: 0.8rem;
 }
 header{
     overflow-x: hidden;
@@ -723,25 +805,38 @@ header{
  }
 
  @media screen and (max-width: 1085px) {
+    #privacyPolicy p{
+        font-size: 16px;
+    }
+    #privacyPolicy h1{
+        font-size: 20px;
+
+    }
+    #privacyPolicy {
+        font-size: 16px;
+    }
+    
     h1, .b-mainArticle__header span {
         font-size: 200%;
     }
     .i-sectionStartPage {
-        padding: 2rem 0;
+        padding: 5rem 0 2rem 0;
     }
     .b-article__gridContainer{
         grid-template-columns: repeat(1, 1fr);
     }
     .b-article h2, .b-article h2 span {
-        font-size: 30px;
-        line-height: 40px;
+        font-size: 40px;
+        line-height: 50px;
     }
     .i-section {
         padding: 2rem 0 ;
     }
     main li {
-        font-size: 15px;
-        line-height: 20px;
+        font-size: 20px;
+        line-height: 30px;
+        text-align: left;
+        padding: 0 1.3rem 0 2rem;
     }
     main ul li::before {
         background-size: 15px 27px;
@@ -750,6 +845,18 @@ header{
     }
     body {
         font-size: smaller;
+    }
+    .b-article__advs_item_title {
+        font-size: 28px;
+    }
+    .b-article__services_link:last-of-type {
+        border: solid 6px #5B48EE!important;
+        transition: all .5s;
+    }
+    .b-article__review_text {
+        
+        padding: 0 10% 5% 10%;
+        
     }
     .secondary-primary-btn {
         font-size: 20px;
@@ -784,7 +891,7 @@ header{
         top: 40%;
     }
     .b-btn__slider_next {
-        right:7%;
+        right:1%;
         top: 40%;
     }
     .b-article__review_text {
@@ -793,10 +900,12 @@ header{
     }
     .b-article__review_title {
         font-size: 16px;
-        padding: 1% 13% 0 3%;
-        
+        padding: 1rem 1.5rem 0 1.5rem;
+        font-size: 24px;
     }
-   
+    .b-mainArticle__content_btn {
+        width: 100%;
+    }
     .slick-slide img {
         display: block;
     }
@@ -820,20 +929,21 @@ header{
         font-size: 16px;
     }
     .b-mainArticle__content p:first-child{
-        font-size: 20px;
+        font-size: 26px;
         line-height: 30px;
     }
     .b-mainArticle__content p{
-        font-size: 18px;
+        font-size: 22px;
         line-height: 28px;
     }
     h3 {
-        font-size: 150%;
+        font-size: 36px;
     }
     .b-article__review_body {
         background-color: #fff;
         border-radius: 10px;
         border: solid 6px #5B48EE;
+        min-height: 450px;
     }
     .b-article__review_body img {
         display: none;
@@ -882,4 +992,26 @@ header{
     .header__menu ul{
         flex-direction: column;
     }
+    .b-modal-body {
+        overflow-y: auto;
+        margin: 0 auto;
+        background: linear-gradient(194.88deg, #000000 12%, #140738 63.19%, #1E0073 87.91%);
+        transition: all .5s;
+        height: unset;
+    }
+    .policy .b-modal-body {
+        overflow-y: auto;
+        margin: 0 auto;
+        background: linear-gradient(194.88deg, #000000 12%, #140738 63.19%, #1E0073 87.91%);
+        transition: all .5s;
+        height: 100%;
+    }
+    #orderService .b-modal-body {
+        overflow-y: auto;
+        margin: 0 auto;
+        background: linear-gradient(194.88deg, #000000 12%, #140738 63.19%, #1E0073 87.91%);
+        transition: all .5s;
+        height: 100%;
+    }
+    
  }

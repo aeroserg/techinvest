@@ -1,8 +1,9 @@
 const HOST = location.protocol + '//' + location.host;
 
-function getMaxOfArray(numArray) {
-    return Math.max.apply(null, numArray);
-}
+const PORT = ':9191';
+
+const BASE_HOST = HOST;
+var $crf_token = $('[name="csrfmiddlewaretoken"]').attr('value');
 
 async function postData(url, data = {}) {
     const response = await fetch(url)
@@ -13,6 +14,8 @@ async function postData(url, data = {}) {
             function putInsideServiceHTML(a,b,c,d,e,f,g) {
                 var result_right = '';
                 var result_left = '';
+                let result_string = '';
+                let res;
                 if(a !== ""){
                     d.innerHTML = a;
                 }
@@ -20,26 +23,47 @@ async function postData(url, data = {}) {
                     e.innerHTML = b
                 }
                 if(c.length !== 0 ){
-                    if(c.length <= 11 ){ 
+
+                    if(c.length <= 6){ 
                         for (var i = 0; i < c.length; i++) {
                             result_left += "<li>" + c[i] + "</li>";
                             
                         }
                         f.innerHTML = result_left;
+                        //g.innerHTML += "<div class='b-serviceOrder-btn mt-4 mb-4 c-serviceOrder'><a href='#orderService'>Заказать бесплатную консультацию</a></div>";
                     }
-                    else if (c.length > 11) {
-                        for (var k = 0; k < 11; k++) {
-                            result_left += "<li>" + c[k] + "</li>";
-                            
+                    else if (c.length > 6) {
+                        let twoThird = c.length - ((c.length - c.length % 3) / 3);
+                       // console.log(oneThird);
+                        for (var k = 0; k < c.length; k++) {
+                            result_string += c[k];
                         }
-                        f.innerHTML = result_left;
-                        for (var i = 11; i < c.length; i++) {
-                            result_right += "<li>" + c[i] + "</li>";
-                            
+                        res = result_string.length / c.length;
+                        console.log(res);
+                        if (res > 40) {
+                            for (var k = 0; k < twoThird; k++) {
+                                result_left += "<li>" + c[k] + "</li>";
+                                
+                            }
+                            f.innerHTML = result_left;
+                            for (var i = twoThird; i < c.length; i++) {
+                                result_right += "<li>" + c[i] + "</li>";
+                                
+                            }
+                            g.innerHTML += "<ul>" + result_right + "</ul>";
+                        
                         }
-                        g.innerHTML += "<ul>" + result_right + "</ul>";
+                        else {
+                            for (var k = 0; k < c.length; k++) {
+                                result_left += "<li>" + c[k] + "</li>";
+                                
+                            }
+                            f.innerHTML = result_left;
+                            
+                           // g.innerHTML += "<div class='b-serviceOrder-btn mt-4 mb-4 c-serviceOrder'><a href='#orderService'>Заказать бесплатную консультацию</a></div>";
+                        }
+                        
                     }
-                    
                 }
             }
          
@@ -65,8 +89,8 @@ async function postData(url, data = {}) {
 
                             var titleHTML = document.querySelector('#businessAutomatisation .b-modal-title ');
                             var descriptionHTML = document.querySelector('#businessAutomatisation .b-modal-description');
-                            var UListHTML = document.querySelector('#businessAutomatisation .col-lg-7 ul');
-                            var rightColumn = document.querySelector('#businessAutomatisation .col-lg-5');
+                            var UListHTML = document.querySelector('#businessAutomatisation .businessAutomatisation-left ul');
+                            var rightColumn = document.querySelector('#businessAutomatisation .businessAutomatisation-right .b-modal-content-container');
 
                             putInsideServiceHTML(title,description,UList,titleHTML,descriptionHTML,UListHTML,rightColumn)
                           
@@ -177,8 +201,8 @@ async function postData(url, data = {}) {
 
                             var titleHTML = document.querySelector('#outsourcingServers .b-modal-title ');
                             var descriptionHTML = document.querySelector('#outsourcingServers .b-modal-description');
-                            var UListHTML = document.querySelector('#outsourcingServers .col-lg-7 ul');
-                            var rightColumn = document.querySelector('#outsourcingServers .col-lg-5');
+                            var UListHTML = document.querySelector('#outsourcingServers .outsourcingServers-left ul');
+                            var rightColumn = document.querySelector('#outsourcingServers .outsourcingServers-right .b-modal-content-container');
 
                             putInsideServiceHTML(title,description,UList,titleHTML,descriptionHTML,UListHTML,rightColumn)
 
@@ -208,8 +232,8 @@ async function postData(url, data = {}) {
 
                             var titleHTML = document.querySelector('#virtualisation .b-modal-title ');          //d
                             var descriptionHTML = document.querySelector('#virtualisation .b-modal-description');//e
-                            var UListHTML = document.querySelector('#virtualisation .col-lg-7 ul');             //f
-                            var rightColumn = document.querySelector('#virtualisation .col-lg-5');              //g
+                            var UListHTML = document.querySelector('#virtualisation .virtualisation-left ul');             //f
+                            var rightColumn = document.querySelector('#virtualisation .virtualisation-right ');              //g
 
                             putInsideServiceHTML(title,description,UList,titleHTML,descriptionHTML,UListHTML,rightColumn)
                           
@@ -238,8 +262,8 @@ async function postData(url, data = {}) {
 
                             var titleHTML = document.querySelector('#PCSupport .b-modal-title ');          //d
                             var descriptionHTML = document.querySelector('#PCSupport .b-modal-description');//e
-                            var UListHTML = document.querySelector('#PCSupport .col-lg-7 ul');             //f
-                            var rightColumn = document.querySelector('#PCSupport .col-lg-5');              //g
+                            var UListHTML = document.querySelector('#PCSupport .PCSupport-left ul');             //f
+                            var rightColumn = document.querySelector('#PCSupport .PCSupport-right .b-modal-content-container');              //g
 
                             putInsideServiceHTML(title,description,UList,titleHTML,descriptionHTML,UListHTML,rightColumn)
                           
@@ -268,8 +292,8 @@ async function postData(url, data = {}) {
 
                             var titleHTML = document.querySelector('#video .b-modal-title ');          //d
                             var descriptionHTML = document.querySelector('#video .b-modal-description');//e
-                            var UListHTML = document.querySelector('#video .col-lg-7 ul');             //f
-                            var rightColumn = document.querySelector('#video .col-lg-5');              //g
+                            var UListHTML = document.querySelector('#video .video-left ul');             //f
+                            var rightColumn = document.querySelector('#video .video-right .b-modal-content-container');              //g
 
                             putInsideServiceHTML(title,description,UList,titleHTML,descriptionHTML,UListHTML,rightColumn)
                           
@@ -298,8 +322,8 @@ async function postData(url, data = {}) {
 
                             var titleHTML = document.querySelector('#maintenance_1C .b-modal-title');          //d
                             var descriptionHTML = document.querySelector('#maintenance_1C .b-modal-description');//e
-                            var UListHTML = document.querySelector('#maintenance_1C .col-lg-7 ul');             //f
-                            var rightColumn = document.querySelector('#maintenance_1C .col-lg-5');              //g
+                            var UListHTML = document.querySelector('#maintenance_1C .maintenance_1C-left ul');             //f
+                            var rightColumn = document.querySelector('#maintenance_1C .maintenance_1C-right .b-modal-content-container');              //g
 
                             putInsideServiceHTML(title,description,UList,titleHTML,descriptionHTML,UListHTML,rightColumn)
                           
@@ -329,11 +353,16 @@ async function postData(url, data = {}) {
         
                             if (data.contacts[maxID()].email !== undefined) {
                                 const email = data.contacts[maxID()].email
-                                document.querySelector('.b-article_contacts_content a[href^="mailto"]').innerHTML = `<a href="mailto:${email}">${email}</a>`;
+                                document.querySelector('.b-article_contacts_content a[href^="mailto"]').innerHTML = email;
+                                document.querySelector('.b-article_contacts_content a[href^="mailto"]').href = `mailto:${email}`;
                             }
                             if (data.contacts[maxID()].phone !== undefined) {
                                 const phone = data.contacts[maxID()].phone
-                                document.querySelector('.b-article_contacts_content a[href^="tel"]').innerHTML = `<a href="tel:${phone}">${phone}</a>`;
+                                document.querySelector('.b-article_contacts_content a[href^="tel"]').innerHTML = phone;
+                                document.querySelector('.b-article_contacts_content a[href^="tel"]').href = `tel:${phone}`;
+                                document.querySelector('.header__phonLink ').innerHTML = `<a href="tel:${phone}">${phone}</a>`;
+                                document.querySelector('.footer__phonLink ').innerHTML = `<a href="tel:${phone}">${phone}</a>`;
+
                             }
                            
                             if (data.contacts[maxID()].adress !== undefined) {
@@ -365,8 +394,8 @@ async function postData(url, data = {}) {
 
                             var titleHTML = document.querySelector('#phoneSupport .b-modal-title ');          //d
                             var descriptionHTML = document.querySelector('#phoneSupport .b-modal-description');//e
-                            var UListHTML = document.querySelector('#phoneSupport .col-lg-7 ul');             //f
-                            var rightColumn = document.querySelector('#phoneSupport .col-lg-5');              //g
+                            var UListHTML = document.querySelector('#phoneSupport .phoneSupport-left ul');             //f
+                            var rightColumn = document.querySelector('#phoneSupport .phoneSupport-right .b-modal-content-container');              //g
 
                             putInsideServiceHTML(title,description,UList,titleHTML,descriptionHTML,UListHTML,rightColumn)
                           
@@ -395,8 +424,8 @@ async function postData(url, data = {}) {
 
                             var titleHTML = document.querySelector('#setUpNetwork .b-modal-title ');          //d
                             var descriptionHTML = document.querySelector('#setUpNetwork .b-modal-description');//e
-                            var UListHTML = document.querySelector('#setUpNetwork .col-lg-7 ul');             //f
-                            var rightColumn = document.querySelector('#setUpNetwork .col-lg-5');              //g
+                            var UListHTML = document.querySelector('#setUpNetwork .setUpNetwork-left ul');             //f
+                            var rightColumn = document.querySelector('#setUpNetwork .setUpNetwork-right .b-modal-content-container');              //g
 
                             putInsideServiceHTML(title,description,UList,titleHTML,descriptionHTML,UListHTML,rightColumn)
                           
@@ -405,8 +434,19 @@ async function postData(url, data = {}) {
                     }
                     network_equipment();
                     break;
-               
-
+                    case "privacy_policy":
+                        const privacy_policy = () => {
+                            if (data['privacy_policy'].length !== 0) {
+                                var maxID = data['privacy_policy'].length - 1;
+                                const privacyPolicyHTMLContent = data['privacy_policy'][maxID]["content"];
+                                var policyModal = document.querySelector('#privacyPolicy .container');
+                                policyModal.innerHTML = privacyPolicyHTMLContent + "<div class='b-close-btn mt-5'><span style='cursor:pointer;padding: 1rem 2.5rem; background-color: rgba(240, 240, 240, 0.44);text-decoration: none;border-radius: 1.5rem;color: #000000; text-transform: uppercase;font-family:Rubik;'>назад</span></div>";
+                            }
+                            else {return;}
+                        }
+                        privacy_policy();
+                        break;
+                   
             }
            
         })
@@ -417,50 +457,20 @@ async function postData(url, data = {}) {
         
        
     }
-// postData('http://146.185.209.31:9191/api/business_automation/');
- 
-// postData('http://146.185.209.31:9191/api/contacts/');
 
-// postData('http://146.185.209.31:9191/api/review/');
-
-// postData('http://146.185.209.31:9191/api/server_outsourcing/');
-
-// postData('http://146.185.209.31:9191/api/virtualization/');
-
-// postData('http://146.185.209.31:9191/api/computer_monitoring/');
-
-// postData('http://146.185.209.31:9191/api/video_surveillance/');
-
-// postData('http://146.185.209.31:9191/api/maintenance_1C/');
-
-// postData('http://146.185.209.31:9191/api/maintenance_telephony/');
-
-// postData('http://146.185.209.31:9191/api/network_equipment/');
-
-// postData('http://146.185.209.31:9191/api/main_page/');
-
-
-postData(HOST + '/api/business_automation/');
- 
-postData(HOST + '/api/contacts/');
-
-postData(HOST + '/api/review/');
-
-postData(HOST + '/api/server_outsourcing/');
-
-postData(HOST + '/api/virtualization/');
-
-postData(HOST + '/api/computer_monitoring/');
-
-postData(HOST + '/api/video_surveillance/');
-
-postData(HOST + '/api/maintenance_1C/');
-
-postData(HOST + '/api/maintenance_telephony/');
-
-postData(HOST + '/api/network_equipment/');
-
-postData(HOST + '/api/main_page/');
+// ждем изменений из админки
+postData(BASE_HOST + '/api/business_automation/');
+postData(BASE_HOST + '/api/contacts/');
+postData(BASE_HOST + '/api/review/');
+postData(BASE_HOST + '/api/server_outsourcing/');
+postData(BASE_HOST + '/api/virtualization/');
+postData(BASE_HOST + '/api/computer_monitoring/');
+postData(BASE_HOST + '/api/video_surveillance/');
+postData(BASE_HOST + '/api/maintenance_1C/');
+postData(BASE_HOST + '/api/maintenance_telephony/');
+postData(BASE_HOST + '/api/network_equipment/');
+postData(BASE_HOST + '/api/main_page/');
+postData(BASE_HOST + '/api/privacy_policy/');
 
 
 
@@ -472,7 +482,7 @@ $(document).ready(function(){
             $(`.b-modal${link}`).removeClass('d-none');
             $(`.b-modal${link}`).addClass('d-block');
           });
-          $('.b-close-btn').on( "click", function() {
+          $('.b-close-btn span').on( "click", function() {
             $(`.b-modal${link}`).removeClass('d-block');
             $(`.b-modal${link}`).addClass('d-none');
           });
@@ -487,17 +497,27 @@ $(document).ready(function(){
             var link = $(this).attr('href');
             $('#orderService').removeClass('d-none');
             $('#orderService').addClass('d-block');
-            $('.b-close-btn').on( "click", function() {
+            $('.b-close-btn span').on( "click", function() {
                 $('#orderService').removeClass('d-block');
                 $('#orderService').addClass('d-none ');
             });
         
         });
        
+        $('#privacyPolicyLink').on( "click", function(e) {
+            e.preventDefault();
+            $('#privacyPolicy').removeClass('d-none');
+            $('#privacyPolicy').addClass('d-block');
+            $('.b-close-btn span').on( "click", function() {
+                $('#privacyPolicy').removeClass('d-block');
+                $('#privacyPolicy').addClass('d-none');
+            });
 
+        });
         // show hamburger menu
  
         if($(window).width() < 1085){
+            $('header').addClass('d-none');
             $(".b-mobile-header").removeClass('d-none').addClass('d-block');
             $(".b-mobile-menu").removeClass('d-none').addClass('d-block');
            
@@ -507,11 +527,13 @@ $(document).ready(function(){
             $(this).toggleClass('active');
             $('.b-mobile-menu').toggleClass('c-menu-shown')
           });
-         
+        $('.nav-links li').click(function (e) {
+            e.preventDefault();
+            $('.b-mobile-menu').removeClass('c-menu-shown');
+            $('#hamburgerMenu').removeClass('active');
+        });
         
-
     //плавующий хедер
-
     const onScrollHeader = () => { 
         const header = $('header, .b-mobile-header') 
         let prevScroll = $(window).scrollTop() 
@@ -528,26 +550,16 @@ $(document).ready(function(){
           prevScroll = currentScroll;
           
         })
-       
-      }
-      if ($(window).width() < 1085) { 
-        $('header').addClass('d-none') 
       }
       onScrollHeader();
-    
  // smooth scroll
     $(document).on('click', 'a[href^="#"]', function (event) {
-        
         event.preventDefault();
-        $('.b-mobile-menu').toggleClass('c-menu-shown');
-        $('#hamburgerMenu').toggleClass('active');
         $('html, body').animate({
             scrollTop: $($.attr(this, 'href')).offset().top
         }, 500);
     });
-
-    
-
+   
     //обработчик форм
     $("#contactUs").submit(function(e) {
             e.preventDefault(); 
@@ -555,8 +567,6 @@ $(document).ready(function(){
             $('.l-form_loading').removeClass( "d-none" ).addClass( "d-block" )
         
             $(this).find('input[type=submit], button[type=submit]').prop('disabled', true);
-                var form = $(this);
-                var actionUrl = form.attr('action');
                 var userName = $("#user_name").val();
                 var userPhone = $("#user_phone").val();
                 var userMessage = $("#user_message").val();
@@ -564,21 +574,38 @@ $(document).ready(function(){
                 var formData = {"message":`Пользователь оставил свои данные (форма услуг):\nИмя: ${userName} \nТелефон: ${userPhone}\nСообщение: ${userMessage}`};
             $.ajax({
                 type: "POST",
-                url: location.protocol + '//' + location.host + '/api/send_email/',
+                url: BASE_HOST + '/api/send_email/',
                 data: formData,
+                headers:{"X-CSRFToken": $crf_token},
                 dataType: "json",
                 encode: true,
-                done: function()
+                sucsess: function()
                 {
                     $('.l-form_loading').removeClass( "d-block" ).addClass( "d-none " )
-                   
                     $('.l-form_success_msg').removeClass( "d-none" )
                     $('.l-form_success_msg').addClass( "d-block" )
                     $('.l-form_primary-btn').prop('disabled', false)
                     $('#contactUs')[0].reset();
                 },
-               
-            }); 
+                done: function(data){
+                    //смотрим какой ответ отправляется в случае успеха
+                    console.log(data);
+                },
+                complete: function(data){
+                    $('.l-form_loading').removeClass( "d-block" ).addClass( "d-none " )
+                    $('.l-form_success_msg').removeClass( "d-none" )
+                    $('.l-form_success_msg').addClass( "d-block" )
+                    $('.l-form_primary-btn').prop('disabled', false)
+                    $('#contactUs')[0].reset();
+                },
+                error: function(data){
+                    // пишем ошибку в консоль если что-то пошло не так
+                    console.log('There was an error');
+                    console.log(data);
+                }
+            });
+        
+            return false;
         });
         $("#contactUsFooter").submit(function(e) {
             e.preventDefault(); 
@@ -586,31 +613,44 @@ $(document).ready(function(){
             $('.l-form_loading').removeClass( "d-none" ).addClass( "d-block" )
         
             $(this).find('input[type=submit], button[type=submit]').prop('disabled', true);
-            var form = $(this);
-            var actionUrl = form.attr('action');
             var userName = $("#user_name_footer").val();
             var userPhone = $("#user_phone_footer").val();
             var userMessage = $("#user_message_footer").val();
 
             var formData = {"message":`Пользователь оставил свои данные (форма из подвала сайта):\nИмя: ${userName} \nТелефон: ${userPhone}\nСообщение: ${userMessage}`};
-        $.ajax({
-            type: "POST",
-            // url: 'http://146.185.209.31:9191/api/send_email/',
-            url: location.protocol + '//' + location.host + '/api/send_email/',
-            data: formData,
-            dataType: "json",
-            encode: true,
-            done: function()
-            {
-                $('.l-form_loading').removeClass( "d-block" ).addClass( "d-none " )
-                
-                $('.l-form_success_msg').removeClass( "d-none" )
-                $('.l-form_success_msg').addClass( "d-block" )
-                $('.l-form_primary-btn').prop('disabled', false)
-                $('#contactUsFooter')[0].reset();
-            }
-            }); 
+            $.ajax({
+                type: "POST",
+                url: BASE_HOST + '/api/send_email/',
+                data: formData,
+                headers:{"X-CSRFToken": $crf_token},
+                dataType: "json",
+                encode: true,
+                sucsess: function()
+                {
+                    $('.l-form_loading').removeClass( "d-block" ).addClass( "d-none " )
+                    $('.l-form_success_msg').removeClass( "d-none" )
+                    $('.l-form_success_msg').addClass( "d-block" )
+                    $('.l-form_primary-btn').prop('disabled', false)
+                    $('#contactUsFooter')[0].reset();
+                },
+                done: function(data){
+                    //смотрим какой ответ отправляется в случае успеха
+                    console.log(data);
+                },
+                complete: function(data){
+                    $('.l-form_loading').removeClass( "d-block" ).addClass( "d-none " )
+                    $('.l-form_success_msg').removeClass( "d-none" )
+                    $('.l-form_success_msg').addClass( "d-block" )
+                    $('.l-form_primary-btn').prop('disabled', false)
+                    $('#contactUsFooter')[0].reset();
+                },
+                error: function(data){
+                    // пишем ошибку в консоль если что-то пошло не так
+                    console.log('There was an error');
+                    console.log(data);
+                }
+            });
+        
+            return false;
         });
 });
-
-

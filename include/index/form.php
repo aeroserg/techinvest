@@ -14,7 +14,7 @@ $api_key = "" ;
     </div>
     <div class="form-item mb-4">
         <textarea id="user_message_footer" name="user_message_footer" class="user_message_footer form-input" pattern=""></textarea>
-        <label class="text_area form-label">Опишите ваш вопрос</label>
+        <label class="text_area form-label">Опишите вашу проблему</label>
     </div>
     <button type="submit" class="l-form_primary-btn">Отправить заявку</button>
     <div class="l-form_loading d-none">
